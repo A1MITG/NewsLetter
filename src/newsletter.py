@@ -11,6 +11,6 @@ IST = pytz.timezone('Asia/Kolkata')
 def generate_newsletter():
     now = datetime.datetime.now(IST)
     stories = scan_all_sources()
-    top_stories, trends, risks = filter_and_rank_stories(stories)
-    markdown = format_markdown(top_stories, trends, risks, now)
+    top_stories, themes, risks, competitive, tech_signals = filter_and_rank_stories(stories)
+    markdown = format_markdown(top_stories, themes, risks, competitive, tech_signals, now)
     return markdown

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance CXO Intelligence Brief — Friday, 19 December 2025</title>
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap' rel='stylesheet'>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background: #0f172a; 
+            color: #1e293b; 
+            min-height: 100vh; 
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0c1929 0%, #1a365d 100%);
+            border-radius: 12px 12px 0 0;
+            padding: 40px 48px;
+            color: #fff;
+            position: relative;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+        }
+        
+        .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .brand {
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9em;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .header-subtitle {
+            color: #94a3b8;
+            font-size: 0.9em;
+            margin-bottom: 16px;
+        }
+        .header-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85em;
+            color: #cbd5e1;
+        }
+        
+        /* Main */
+        .main { background: #fff; }
+        
+        /* Executive Pulse */
+        .pulse {
+            background: linear-gradient(135deg, #1e3a5f, #0f2744);
+            padding: 28px 48px;
+            border-bottom: 2px solid #3b82f6;
+        }
+        .pulse-label {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            font-size: 0.65em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        .pulse-text {
+            font-size: 1.15em;
+            color: #f1f5f9;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        
+        /* Section */
+        .section {
+            padding: 32px 48px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .section:last-child { border-bottom: none; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .section-icon {
+            font-size: 1.1em;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15em;
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        /* Article List */
+        .article-list {
+            list-style: none;
+        }
+        .article-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .article-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .article-headline {
+            font-size: 1em;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .article-headline a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .article-headline a:hover {
+            color: #3b82f6;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8em;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        .article-source {
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .article-summary {
+            font-size: 0.9em;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: #3b82f6;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+        .article-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Empty State */
+        .empty {
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 0.9em;
+            padding: 12px 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            padding: 28px 48px;
+            border-radius: 0 0 12px 12px;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .footer-logo {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .footer-name {
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #475569;
+            font-size: 0.85em;
+        }
+        .footer-text {
+            font-size: 0.75em;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .header, .pulse, .section, .footer {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            .header-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-row">
+                <div class="logo">CL</div>
+                <span class="brand">Continuum Labs</span>
+            </div>
+            <h1 class="header-title">Insurance Intelligence Brief</h1>
+            <div class="header-meta">
+                <span>📅 Friday, 19 December 2025</span>
+                <span>🕐 23:50 IST</span>
+                <span>📊 Last 24 Hours</span>
+            </div>
+        </header>
+        
+        <main class="main">
+            <!-- Executive Pulse -->
+            <div class="pulse">
+                <div class="pulse-label">⚡ Executive Pulse</div>
+                <p class="pulse-text">Technology signal: AIG, Amwins and Blackstone to launch Lloyd’s Syndicate 2479 — operating model implications to evaluate.</p>
+            </div>
+            
+            <!-- Strategic Insurance Developments -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">📊</span>
+                    <h2 class="section-title">Strategic Insurance Developments</h2>
+                </div>
+                <ul class="article-list">
+
+                    <li class="article-item">
+                        <h3 class="article-headline"><a href="https://www.reinsurancene.ws/everest-names-carter-as-head-of-na-re-claims-as-parker-takes-over-as-head-of-intl-re-claims/" target="_blank">Everest names Carter as Head of NA Re Claims as Parker takes over as Head of Intl. Re Claims</a></h3>
+                        <div class="article-meta">
+                            <span class="article-source">Reinsurance News</span>
+<span>→ Claims · IT</span>
+                        </div>
+                        <p class="article-summary">Global insurance and reinsurance company, Everest Group, has named Tim Carter as Head of North America Reinsurance Claims, and James Parker as Head of International Reinsurance...</p>
+                        <a href="https://www.reinsurancene.ws/everest-names-carter-as-head-of-na-re-claims-as-parker-takes-over-as-head-of-intl-re-claims/" target="_blank" class="article-link">Read →</a>
+                    </li>
+
+                </ul>
+            </div>
+            
+            <!-- Technology & AI (Insurance-Only) -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">🤖</span>
+                    <h2 class="section-title">Technology & AI (Insurance-Only)</h2>
+                </div>
+                <ul class="article-list">
+
+                    <li class="article-item">
+                        <h3 class="article-headline"><a href="https://coverager.com/aig-amwins-and-blackstone-to-launch-lloyds-syndicate-2479/" target="_blank">AIG, Amwins and Blackstone to launch Lloyd’s Syndicate 2479</a></h3>
+                        <div class="article-meta">
+                            <span class="article-source">Coverager</span>
+<span>→ Underwriting · IT</span>
+                        </div>
+                        <p class="article-summary">Syndicate 2479 will commence underwriting $300 million of premium that will be managed by AIG.AIG, Amwins and Blackstone to launch Lloyd’s Syndicate 2479Coverager - Insurance news...</p>
+                        <a href="https://coverager.com/aig-amwins-and-blackstone-to-launch-lloyds-syndicate-2479/" target="_blank" class="article-link">Read →</a>
+                    </li>
+
+                    <li class="article-item">
+                        <h3 class="article-headline"><a href="https://coverager.com/eab-systems-and-insuremo-partner-to-digitize-insurance-sales-execution/" target="_blank">EAB Systems and InsureMO Partner to Digitize Insurance Sales Execution</a></h3>
+                        <div class="article-meta">
+                            <span class="article-source">Coverager</span>
+<span>→ IT</span>
+                        </div>
+                        <p class="article-summary">December 13, 2025 Strategic Alliance Combines Frontend Excellence with Backend Power to Deliver End-to-End Insurance Sales Digitalisation EAB Systems (Hong Kong) Limited, a...</p>
+                        <a href="https://coverager.com/eab-systems-and-insuremo-partner-to-digitize-insurance-sales-execution/" target="_blank" class="article-link">Read →</a>
+                    </li>
+
+                </ul>
+            </div>
+            
+            <!-- Risk, Regulation & Trust -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-icon">⚖️</span>
+                    <h2 class="section-title">Risk, Regulation & Trust</h2>
+                </div>
+                <ul class="article-list">
+
+                    <li class="article-item">
+                        <h3 class="article-headline"><a href="https://www.artemis.bm/news/artexs-martin-hughes-to-lead-gallagher-res-new-captives-risk-transfer-team/?utm_source=rss&utm_medium=rss&utm_campaign=artexs-martin-hughes-to-lead-gallagher-res-new-captives-risk-transfer-team" target="_blank">Artex’s Martin Hughes to lead Gallagher Re’s new Captives Risk Transfer team</a></h3>
+                        <div class="article-meta">
+                            <span class="article-source">Artemis Cat Bonds</span>
+<span>→ Distribution</span>
+                        </div>
+                        <p class="article-summary">This content is copyright towww.artemis.bmand should not appear anywhere else, or an infringement has occurred.Reinsurance broker Gallagher Re has unveiled a new specialised...</p>
+                        <a href="https://www.artemis.bm/news/artexs-martin-hughes-to-lead-gallagher-res-new-captives-risk-transfer-team/?utm_source=rss&utm_medium=rss&utm_campaign=artexs-martin-hughes-to-lead-gallagher-res-new-captives-risk-transfer-team" target="_blank" class="article-link">Read →</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-brand">
+                <div class="footer-logo">CL</div>
+                <span class="footer-name">Continuum Labs</span>
+            </div>
+            <p class="footer-text">
+                Insurance-only intelligence for CXO decision-makers. Board-ready, no-clutter, actionable.<br>
+                © 2025 Continuum Labs. Classification: Internal Use Only.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

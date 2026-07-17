@@ -8,6 +8,19 @@ import traceback
 app = FastAPI()
 
 
+@app.get("/")
+def root():
+    return {
+        "message": "CXO Insurance & BFSI Intelligence Newsletter API",
+        "endpoints": {
+            "/newsletter": "Get newsletter in markdown format",
+            "/newsletter/html": "Get newsletter in HTML format",
+            "/newsletter/word": "Download newsletter as Word document",
+            "/docs": "API documentation"
+        }
+    }
+
+
 @app.get("/newsletter")
 def get_newsletter():
     try:
